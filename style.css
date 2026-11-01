@@ -438,14 +438,15 @@ header {
 }
 
 .profile-photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
 }
-
 @keyframes photoBorderGlow {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
