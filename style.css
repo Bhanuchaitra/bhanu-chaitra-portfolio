@@ -1694,3 +1694,79 @@ footer { font-size: 12px; }
     .project-bottom-note { margin-top: 26px; }
     .contact-section { padding-top: 64px; padding-bottom: 64px; }
 }
+/* AI ORBS BACKGROUND */
+.ai-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  will-change: transform, border-radius;
+}
+
+.orb-1 {
+  width: 460px; height: 460px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle at 30% 30%, #76B7FF, #438BFF 55%, transparent 72%);
+  animation: orbDrift1 20s ease-in-out infinite, orbMorph 9s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 520px; height: 520px;
+  top: 20%; right: -160px;
+  background: radial-gradient(circle at 60% 40%, #9B65FF, #6a3de8 55%, transparent 72%);
+  animation: orbDrift2 24s ease-in-out infinite, orbMorph 11s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 380px; height: 380px;
+  bottom: -120px; left: 25%;
+  background: radial-gradient(circle at 40% 40%, #D9C8FF, #9B65FF 50%, transparent 72%);
+  opacity: 0.4;
+  animation: orbDrift3 22s ease-in-out infinite, orbMorph 13s ease-in-out infinite;
+}
+
+.orb-4 {
+  width: 300px; height: 300px;
+  top: 45%; left: 10%;
+  background: radial-gradient(circle at 50% 50%, #5ee1ff, #438BFF 55%, transparent 72%);
+  opacity: 0.35;
+  animation: orbDrift2 28s ease-in-out infinite reverse, orbMorph 10s ease-in-out infinite;
+}
+
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(180px, 120px) scale(1.15); }
+  66%      { transform: translate(60px, 260px) scale(0.9); }
+}
+
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-220px, 140px) scale(1.2); }
+}
+
+@keyframes orbDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%      { transform: translate(200px, -160px) scale(1.1); }
+  80%      { transform: translate(-120px, -60px) scale(0.92); }
+}
+
+/* the wobbling shape is what gives the "voice orb" feel */
+@keyframes orbMorph {
+  0%, 100% { border-radius: 50% 50% 50% 50%; }
+  25%      { border-radius: 58% 42% 55% 45%; }
+  50%      { border-radius: 45% 55% 42% 58%; }
+  75%      { border-radius: 54% 46% 60% 40%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+}
